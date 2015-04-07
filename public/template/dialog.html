@@ -1,0 +1,85 @@
+<md-dialog aria-label="Add New Topic" flex="50" flex-sm="100" ng-controller="topicController">
+    <md-toolbar class="md-primary">
+        <h2 class="md-toolbar-tools">
+            Add New Topic
+        </h2>
+    </md-toolbar>
+
+    <md-content class="sticky-containe md-padding">
+        <div class="dialog-content">
+            <form name="topicForm">
+                <md-input-container>
+                    <label>Topic Name</label>
+                    <input required name="topicName" ng-model="topic.name">
+                    <div ng-messages="topicForm.topicName.$error">
+                        <div ng-message="required">This is required.</div>
+                    </div>
+                </md-input-container>
+                <md-input-container>
+                    <label>Description</label>
+                    <input required name="description" ng-model="topic.description">
+                    <div ng-messages="topicForm.description.$error">
+                        <div ng-message="required">This is required.</div>
+                    </div>
+                </md-input-container>
+                <md-select placeholder="Day" ng-model="topic.day">
+                    <md-option value="1">1</md-option>
+                    <md-option value="2">2</md-option>
+                    <md-option value="3">3</md-option>
+                    <md-option value="4">4</md-option>
+                    <md-option value="5">5</md-option>
+                    <md-option value="6">6</md-option>
+                    <md-option value="7">7</md-option>
+                    <md-option value="8">8</md-option>
+                    <md-option value="9">9</md-option>
+                    <md-option value="10">10</md-option>
+                    <md-option value="11">11</md-option>
+                    <md-option value="12">12</md-option>
+                    <md-option value="13">13</md-option>
+                    <md-option value="14">14</md-option>
+                    <md-option value="15">15</md-option>
+                    <md-option value="16">16</md-option>
+                    <md-option value="17">17</md-option>
+                    <md-option value="18">18</md-option>
+                    <md-option value="19">19</md-option>
+                    <md-option value="20">20</md-option>
+                    <md-option value="21">21</md-option>
+                    <md-option value="22">22</md-option>
+                    <md-option value="23">23</md-option>
+                    <md-option value="24">24</md-option>
+                    <md-option value="25">25</md-option>
+                    <md-option value="26">26</md-option>
+                    <md-option value="27">27</md-option>
+                    <md-option value="28">28</md-option>
+                    <md-option value="29">29</md-option>
+                    <md-option value="30">30</md-option>
+                    <md-option value="31">31</md-option>
+                </md-select>
+                <md-select placeholder="Month" ng-model="topic.month">
+                    <md-option value="0">JAN</md-option>
+                    <md-option value="1">FEB</md-option>
+                    <md-option value="2">MAR</md-option>
+                    <md-option value="3">APR</md-option>
+                    <md-option value="4">MAY</md-option>
+                    <md-option value="5">JUN</md-option>
+                    <md-option value="6">JUL</md-option>
+                    <md-option value="7">AUG</md-option>
+                    <md-option value="8">SEP</md-option>
+                    <md-option value="9">OCT</md-option>
+                    <md-option value="10">NOV</md-option>
+                    <md-option value="11">DEC</md-option>
+                </md-select>
+                <md-select placeholder="Year" ng-model="topic.year">
+                    <md-option value="2015">2015</md-option>
+                </md-select>
+            </form>
+        </div>
+    </md-content>
+
+    <div class="md-actions" layout="row">
+        <md-button class="md-raised md-primary" ng-click="addNewTopic()" ng-disabled="!(topic.name && topic.description)">
+            Add
+        </md-button>
+    </div>
+
+</md-dialog>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <title>Dewey Application</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Dewey Application">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
+    <link rel="stylesheet" href="angular-material/angular-material.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+
+<body ng-app="deweyApp">
+    <div ng-controller="topicController" layout="row" layout-padding layout-align="center center">
+        <md flex="50" flex-sm="100">
+
+                <div layout="row" layout-padding layout-align="center center">
+                    <div>
+                        Dewey
+                    </div>
+                </div>
+
+                <div id="menu" layout="row" layout-padding layout-align="end center">
+                    <span ng-if="userName != null">Welcome {{userName}}</span> &nbsp;&nbsp;
+                    <md-button ng-if="token != undefine" class="md-raised md-primary" ng-click="openDialog($event)">Add Topic</md-button>
+                    <md-button ng-if="token == undefine" class="md-raised md-primary" ng-click="login()">Log In</md-button>
+                </div>
+
+                    <md-toolbar class="md-primary">
+                        <div layout="row" class="md-primary">
+                            <div flex="50" class="md-toolbar-tools">
+                                Topics
+                            </div>
+                        </div>
+                    </md-toolbar>
+
+
+                    <md-content>
+                        <md-list>
+
+                                <md-item ng-repeat="item in topics">
+                                    <md-item-content>
+                                        <div class="md-tile-left">
+                                            <img ng-src="{{item.user.image}}" class="face" alt="{{item.user.name}}">
+                                        </div>
+                                        <div class="md-tile-content">
+                                            <h3>{{item.name}}</h3>
+                                            <p>{{item.description}}</p>
+                                            <p>{{item.date | date:"dd MMMM yyyy 'at' h:mma"}}</p>
+                                            <p> by {{item.user.name}}</p>
+                                            <md-button class="md-warn md-raised md-hue-2"
+                                                       ng-show="(item.user.id == userId && userId != undefined)"
+                                                       ng-click="deleteTopic($event,item._id)">
+                                                Delete
+                                            </md-button>
+                                        </div>
+                                    </md-item-content>
+                                    <md-divider ng-if="!$last"></md-divider>
+                                </md-item>
+                        </md-list>
+                    </md-content>
+        </md>
+    </div>
+
+    <script src="angular/angular.js"></script>
+    <script src="angular-resource/angular-resource.js"></script>
+    <script src="angular-animate/angular-animate.js"></script>
+    <script src="angular-aria/angular-aria.js"></script>
+    <script type="text/javascript" src="angular-material/angular-material.js"></script>
+    <script type="text/javascript" src="js/dewey.js"></script>
+    <script type="text/javascript" src="js/controller.js"></script>
+    <script type="text/javascript" src="js/service.js"></script>
+    <script type="text/javascript">
+        angular.module('deweyApp', ['ngMaterial','deweyControllers','deweyServices']);
+    </script>
+
+</body>
+</html>

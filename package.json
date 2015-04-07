@@ -1,0 +1,16 @@
+{
+  "name": "Dewey",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "~4.9.x",
+    "body-parser": "~1.8.x",
+    "googleapis": "~2.0.x",
+    "mongoose": "~4.0.x",
+    "multer": "~0.1.x",
+    "nconf": "~0.7.x"
+  }
+}
